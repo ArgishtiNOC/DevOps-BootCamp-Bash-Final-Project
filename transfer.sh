@@ -30,7 +30,7 @@ singleUpload()
 
 singleDownload()
 {
-  filePath=$(echo "$1" | sed 's/\.\///g')
+  filePath=$(echo "$2" | sed 's/\.\///g')
   
   if [ ! -d "$filePath" ]
   then
@@ -39,7 +39,7 @@ singleDownload()
   fi
   
   echo "Downloading $3"
-  response=$(curl -# --url "https://transfer.sh/$2/$3" --output "$filePath/$3")
+  response=$(curl -# --url "https://transfer.sh/$3/$4" --output "$filePath/$4")
   printDownloadResponse
 }
 
@@ -79,5 +79,4 @@ service () {
 }
 
 service "$@"
-
 
