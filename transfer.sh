@@ -1,7 +1,5 @@
 #!/bin/bash
 
-currentVersion="1.23.0"
-
 httpSingleUpload()
 {
     response=$(curl -A curl --upload-file "$1" "https://transfer.sh/$2") || { echo "Failure!"; return 1;}
@@ -16,15 +14,15 @@ Transfer File URL: $response
 EOF
 }
 
-singleUpload()
-{
+singleUpload() {
   filePath=$(echo "$1" | sed s:"~":"$HOME":g)
-  if [ ! -f "$filePath" ]; 
-  then { echo "Error: invalid file path"; return 1;};
-  fi
+  if [ ! -f "$filePath" ]; then {
+    echo "Error: invalid file path"
+    return 1
+  }; fi
   tempFileName=$(echo "$1" | sed "s/.*\///")
   echo "Uploading $tempFileName"
-  httpSingleUpload "$filePath $tempFileName"
+  httpSingleUpload "$filePath" "$tempFileName"
 }
 
 
