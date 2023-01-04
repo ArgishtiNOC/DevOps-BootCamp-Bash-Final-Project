@@ -1,6 +1,6 @@
 #!/bin/bash
 
-currentVersion="0.0.1"
+currentVersion="1.23.0"
 
 httpSingleUpload()
 {
@@ -70,7 +70,7 @@ service () {
   if [[ $1 == "-h" ]];
   then echo "$x"
   elif [[ $1 == "-v" ]];
-  then echo "0.0.1"
+  then echo "1.23.0"
   elif [[ $1 == "-d" ]]
   then singleDownload "$@"
   else 
