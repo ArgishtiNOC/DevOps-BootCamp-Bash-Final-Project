@@ -80,4 +80,4 @@ service () {
 
 service "$@"
 
-singleUpload "$@" || exit 1
+
